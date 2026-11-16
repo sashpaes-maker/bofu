@@ -386,7 +386,7 @@ footer{padding-top:64px}
           <p class="selo-hero eb">Contato</p>
           <h1 id="h-pg" class="pg-h1">Vamos olhar <b>o seu funil.</b></h1>
           <p class="sub">Você me conta o que está travando, e eu te digo qual serviço faz sentido, se algum fizer.</p>
-          <ul class="ct-info"><li>Conversa por vídeo, no horário que você escolher</li><li>Sem apresentação de vendas</li><li>Você sai com pelo menos uma ideia pra testar</li></ul>
+          <div class="ct-wpp"><p class="ct-wpp-t">Prefere falar pelo WhatsApp?</p><a class="ct-wpp-bt" href="https://wa.me/5511948005810?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20BoFu%20e%20quero%20conversar%20sobre%20o%20funil%20da%20minha%20empresa." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg><span>(11) 94800-5810</span></a></div>
         </div>
         <form class="ct-form" id="ct-form" novalidate>
           <div class="ct-2"><label for="f-nome">Nome<input id="f-nome" name="nome" autocomplete="name" maxlength="80" required aria-describedby="e-nome"><span class="ct-ferr" id="e-nome" hidden></span></label>
@@ -408,6 +408,19 @@ footer{padding-top:64px}
     </div>
   </div>
 </section>
+
+<dialog class="ct-modal" id="ct-modal" aria-labelledby="ct-modal-h">
+  <button type="button" class="ct-modal-x" id="ct-modal-x" aria-label="Fechar">&times;</button>
+  <span class="ct-modal-ok" aria-hidden="true"></span>
+  <p class="eb ct-modal-eb">Contato recebido</p>
+  <h2 id="ct-modal-h" class="ct-modal-h">Recebido. <b>Agora é com a gente.</b></h2>
+  <p class="ct-modal-p">A gente vai ler com calma o que você contou e logo te chama por e-mail pra marcar a conversa.</p>
+  <p class="ct-modal-p">Quer adiantar? Manda um oi no WhatsApp e a conversa já começa por lá.</p>
+  <div class="ct-modal-acoes">
+    <a class="ct-modal-wpp" id="ct-modal-wpp" href="https://wa.me/5511948005810" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg><span>Chamar no WhatsApp</span></a>
+    <button type="button" class="ct-modal-fecha" id="ct-modal-fecha">Agora não</button>
+  </div>
+</dialog>
 <footer>
   <div class="wrap">
     <a class="logo lg-m lg-claro" href="#topo" aria-label="BoFu, início"><svg class="lg-f" viewBox="0 0 100 100" aria-hidden="true"><polygon points="10,9 90,9 83.6,31 16.4,31" fill="currentColor"/><polygon points="20,39 80,39 73.6,61 26.4,61" fill="currentColor"/><polygon points="30,69 70,69 64.6,91 35.4,91" fill="#CDB896"/></svg>BoFu<span class="lg-a" aria-hidden="true"><i></i><i></i><i></i><i></i></span></a>
@@ -1199,7 +1212,7 @@ f.addEventListener('submit',function(e){e.preventDefault();
  dados.pagina=document.referrer||'';
  if(!ENVIO){fa.textContent='O formulário ainda não tem destino configurado.';fa.hidden=false;return}
  bt.disabled=true;bt.textContent='Enviando...';
- function deu(){ok.hidden=false;f.reset();bt.textContent='Enviado'}
+ function deu(){ok.hidden=false;abreModal(dados.nome,dados.empresa);f.reset();bt.textContent='Enviado'}
  function falhou(){fa.hidden=false;bt.disabled=false;bt.textContent=txt}
  /* texto simples evita a checagem extra do navegador, que o Apps Script não responde */
  var corpo=JSON.stringify(dados);
@@ -1230,6 +1243,23 @@ html.editando [data-ed]:hover{outline-color:#7D6849}
 html.editando [data-ed]:focus{outline:2px solid #CDB896;background:rgba(205,184,150,.12)}
 html.editando [data-ed].mudou{outline-style:solid;outline-color:#2C4D80}
 </style>
+
+<script>
+/* modal de confirmação do contato (16/11) */
+function abreModal(nome,empresa){
+ var m=document.getElementById('ct-modal');if(!m)return;
+ var pn=String(nome||'').trim().split(' ')[0];
+ var t='Olá! '+(pn?'Aqui é '+pn+(empresa?', da '+String(empresa).trim():'')+'. ':'')+'Acabei de preencher o formulário no site da BoFu e queria adiantar a nossa conversa.';
+ document.getElementById('ct-modal-wpp').href='https://wa.me/5511948005810?text='+encodeURIComponent(t);
+ if(typeof m.showModal==='function')m.showModal();else m.setAttribute('open','');
+}
+(function(){var m=document.getElementById('ct-modal');if(!m)return;
+ function fecha(){if(m.close)m.close();else m.removeAttribute('open')}
+ document.getElementById('ct-modal-x').addEventListener('click',fecha);
+ document.getElementById('ct-modal-fecha').addEventListener('click',fecha);
+ m.addEventListener('click',function(e){if(e.target===m)fecha()});
+})();
+</script>
 <script type="application/json" id="cf-textos">{"ai4al8-1":"Você conta o que está travando, e a gente te diz qual serviço faz sentido, se algum fizer.","1757lf6-1":"Confira os campos destacados acima pra gente conseguir te responder.","1pd5fg1-1":"Recebido. A gente te responde por e-mail pra marcar a conversa."}</script>
 <div class="ed-bar" id="edbar" hidden><button type="button" class="ed-bt" id="ed-on">Editar textos</button><button type="button" class="ed-bt pri" id="ed-salva" hidden>Salvar</button><button type="button" class="ed-bt" id="ed-cancela" hidden>Cancelar</button><span class="ed-msg" id="ed-msg" hidden></span></div>
 <script>(function(){
@@ -1356,6 +1386,37 @@ footer .wrap{flex-wrap:wrap;row-gap:20px}
 /* formulário: aviso de erro em cada campo */
 .ct-ferr{display:block;margin-top:6px;font-size:13px;font-weight:500;color:#9B2C2C;line-height:1.4}
 .ct-form [aria-invalid="true"]{border-color:#C24141!important;box-shadow:0 0 0 3px rgba(194,65,65,.12)!important}
+
+/* WhatsApp no contato (16/11) */
+.ct-wpp{margin-top:28px;padding-top:24px;border-top:1px solid rgba(220,228,239,.14)}
+.ct-wpp-t{margin:0 0 12px;color:#DCE4EF;font-size:16px}
+.ct-wpp-bt{display:inline-flex;align-items:center;gap:10px;padding:11px 18px;border:1px solid #CDB896;border-radius:4px;color:#F8F9FB;font-weight:600;font-size:16px;text-decoration:none;transition:background .2s,color .2s}
+.ct-wpp-bt svg{color:#CDB896;flex:none}
+.ct-wpp-bt:hover{background:rgba(205,184,150,.12)}
+.ct-wpp-bt:focus-visible{outline:2px solid #CDB896;outline-offset:3px}
+
+/* modal de confirmação (16/11) */
+.ct-modal{width:min(520px,calc(100vw - 32px));max-width:none;padding:44px 40px 36px;border:0;border-radius:10px;background:#F8F9FB;color:#081120;box-shadow:0 30px 80px rgba(8,17,32,.45);text-align:left;overflow:visible}
+.ct-modal::backdrop{background:rgba(8,17,32,.62);backdrop-filter:blur(4px)}
+.ct-modal[open]{animation:ctm .35s cubic-bezier(.2,.8,.2,1)}
+@keyframes ctm{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+.ct-modal-x{position:absolute;top:12px;right:12px;width:36px;height:36px;border:0;border-radius:4px;background:transparent;color:#7D6849;font-size:26px;line-height:1;cursor:pointer}
+.ct-modal-x:hover{background:#EEF1F5}
+.ct-modal-ok{display:block;position:relative;width:48px;height:48px;margin-bottom:20px;border:1px solid #CDB896}
+.ct-modal-ok::before{content:"";position:absolute;left:15px;top:14px;width:16px;height:8px;border-left:2px solid #7D6849;border-bottom:2px solid #7D6849;transform:rotate(-45deg)}
+.ct-modal-ok::after{content:"";position:absolute;inset:-4px;background:linear-gradient(#CDB896,#CDB896) 0 0/7px 7px no-repeat,linear-gradient(#CDB896,#CDB896) 100% 0/7px 7px no-repeat,linear-gradient(#CDB896,#CDB896) 0 100%/7px 7px no-repeat,linear-gradient(#CDB896,#CDB896) 100% 100%/7px 7px no-repeat}
+.ct-modal-eb{margin:0 0 10px;color:#7D6849}
+.ct-modal-h{margin:0 0 16px;font-size:30px;line-height:1.15;font-weight:400;letter-spacing:-.01em;color:#081120}
+.ct-modal-h b{font-weight:700}
+.ct-modal-p{margin:0 0 10px;font-size:16px;line-height:1.55;color:#3A4558}
+.ct-modal-acoes{display:flex;flex-wrap:wrap;align-items:center;gap:10px 18px;margin-top:26px}
+.ct-modal-wpp{display:inline-flex;align-items:center;gap:10px;padding:13px 20px;border-radius:4px;background:#081120;color:#F8F9FB;font-weight:600;font-size:16px;text-decoration:none;transition:background .2s}
+.ct-modal-wpp svg{color:#CDB896}
+.ct-modal-wpp:hover{background:#16233A}
+.ct-modal-fecha{border:0;background:none;padding:8px 4px;color:#7D6849;font:inherit;font-size:15px;cursor:pointer;text-decoration:underline;text-underline-offset:3px}
+.ct-modal-wpp:focus-visible,.ct-modal-fecha:focus-visible,.ct-modal-x:focus-visible{outline:2px solid #CDB896;outline-offset:3px}
+@media (max-width:560px){.ct-modal{padding:40px 24px 28px}.ct-modal-h{font-size:26px}.ct-modal-wpp{width:100%;justify-content:center}.ct-modal-fecha{width:100%}}
+@media (prefers-reduced-motion:reduce){.ct-modal[open]{animation:none}}
 </style>
 <script type="application/json" id="cf-tamanhos">{}</script>
 <script>(function(){
