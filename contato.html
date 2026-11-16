@@ -386,16 +386,15 @@ footer{padding-top:64px}
           <p class="selo-hero eb">Contato</p>
           <h1 id="h-pg" class="pg-h1">Vamos olhar <b>o seu funil.</b></h1>
           <p class="sub">Você me conta o que está travando, e eu te digo qual serviço faz sentido, se algum fizer.</p>
-          <div class="ct-wpp"><p class="ct-wpp-t">Prefere falar pelo WhatsApp?</p><a class="ct-wpp-bt" href="https://wa.me/5511948005810?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20BoFu%20e%20quero%20conversar%20sobre%20o%20funil%20da%20minha%20empresa." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg><span>(11) 94800-5810</span></a></div>
+          <form class="ct-wpp" id="ct-wpp" novalidate><label class="ct-wpp-t" for="w-email">Prefere falar pelo WhatsApp? Deixe seu e-mail e a conversa abre por lá.</label><div class="ct-wpp-l"><input id="w-email" type="email" inputmode="email" autocomplete="email" maxlength="120" placeholder="seu@empresa.com" required aria-describedby="e-wemail"><button type="submit" class="ct-wpp-bt"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg><span>Chamar no WhatsApp</span></button></div><span class="ct-ferr ct-wpp-err" id="e-wemail" hidden></span></form>
         </div>
         <form class="ct-form" id="ct-form" novalidate>
           <div class="ct-2"><label for="f-nome">Nome<input id="f-nome" name="nome" autocomplete="name" maxlength="80" required aria-describedby="e-nome"><span class="ct-ferr" id="e-nome" hidden></span></label>
           <label for="f-email">E-mail de trabalho<input id="f-email" name="email" type="email" inputmode="email" autocomplete="email" maxlength="120" required aria-describedby="e-email"><span class="ct-ferr" id="e-email" hidden></span></label></div>
           <div class="ct-2"><label for="f-tel">Telefone ou WhatsApp<input id="f-tel" name="telefone" type="tel" inputmode="numeric" autocomplete="tel-national" placeholder="(11) 91234-5678" maxlength="15" required aria-describedby="e-tel"><span class="ct-ferr" id="e-tel" hidden></span></label>
-          <label for="f-empresa">Empresa<input id="f-empresa" name="empresa" autocomplete="organization" maxlength="100" required aria-describedby="e-empresa"><span class="ct-ferr" id="e-empresa" hidden></span></label></div>
+          <label for="f-site">Site da empresa<input id="f-site" name="empresa" type="text" inputmode="url" autocomplete="url" autocapitalize="off" spellcheck="false" placeholder="suaempresa.com.br" maxlength="120" required aria-describedby="e-site"><span class="ct-ferr" id="e-site" hidden></span></label></div>
           <div class="ct-2"><label for="f-cargo">Cargo<input id="f-cargo" name="cargo" autocomplete="organization-title" maxlength="80" required aria-describedby="e-cargo"><span class="ct-ferr" id="e-cargo" hidden></span></label>
-          <label for="f-tam">Tamanho da empresa<select id="f-tam" name="tamanho" required aria-describedby="e-tam"><option value="">Selecione</option><option>Até 30 pessoas</option><option>30 a 100 pessoas</option><option>100 a 300 pessoas</option><option>Mais de 300 pessoas</option></select><span class="ct-ferr" id="e-tam" hidden></span></label></div>
-          <label for="f-serv">O que te interessa<select id="f-serv" name="servico"><option>Ainda não sei</option><option>Raio-x do funil</option><option>Estruturação do funil</option><option>Funil autônomo com IA</option><option>Funil OS</option></select></label>
+          <label for="f-serv">O que te interessa<select id="f-serv" name="servico"><option>Ainda não sei</option><option>Raio-x do funil</option><option>Estruturação do funil</option><option>Funil autônomo com IA</option><option>Funil OS</option></select></label></div>
           <label for="f-msg">O que está travando no seu funil hoje?<textarea id="f-msg" name="mensagem" rows="4"></textarea></label>
           <button type="submit" class="btn btn-ouro">Quero estruturar meu funil</button>
           <p class="ct-erro" id="ct-erro" hidden>Preencha nome, e-mail e empresa pra eu conseguir te responder.</p>
@@ -413,11 +412,11 @@ footer{padding-top:64px}
   <button type="button" class="ct-modal-x" id="ct-modal-x" aria-label="Fechar">&times;</button>
   <span class="ct-modal-ok" aria-hidden="true"></span>
   <p class="eb ct-modal-eb">Contato recebido</p>
-  <h2 id="ct-modal-h" class="ct-modal-h">Recebido. <b>Agora é com a gente.</b></h2>
-  <p class="ct-modal-p">A gente vai ler com calma o que você contou e logo te chama por e-mail pra marcar a conversa.</p>
+  <h2 id="ct-modal-h" class="ct-modal-h">Agora é <b>com a gente.</b></h2>
+  <p class="ct-modal-p">Em breve você vai receber o contato pra marcar a conversa.</p>
   <p class="ct-modal-p">Quer adiantar? Manda um oi no WhatsApp e a conversa já começa por lá.</p>
   <div class="ct-modal-acoes">
-    <a class="ct-modal-wpp" id="ct-modal-wpp" href="https://wa.me/5511948005810" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg><span>Chamar no WhatsApp</span></a>
+    <a class="ct-modal-wpp" id="ct-modal-wpp" href="#" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg><span>Chamar no WhatsApp</span></a>
     <button type="button" class="ct-modal-fecha" id="ct-modal-fecha">Agora não</button>
   </div>
 </dialog>
@@ -1185,14 +1184,27 @@ function telOk(v){var d=so(v);if(d.length>11&&d.indexOf('55')===0)d=d.slice(2);
  if(d.length===11&&n.charAt(0)!=='9')return false;   /* celular: 9 dígitos começando com 9 */
  if(d.length===10&&'2345'.indexOf(n.charAt(0))<0)return false; /* fixo: começa com 2 a 5 */
  return true}
+function limpaSite(v){return String(v||'').trim().toLowerCase().replace(/^https?:\/\//,'').replace(/\/+$/,'')}
+function siteOk(v){return /^(www\.)?[a-z0-9]([a-z0-9-]*[a-z0-9])?(\.[a-z0-9]([a-z0-9-]*[a-z0-9])?)*\.[a-z]{2,}(\/\S*)?$/.test(v)&&v.length<=120}
 function emailOk(v){return /^[A-Za-z0-9._%+\-]+@[A-Za-z0-9\-]+(\.[A-Za-z0-9\-]+)*\.[A-Za-z]{2,}$/.test(v)&&!/\.\./.test(v)&&v.length<=120}
 var C={
  'f-nome':function(v){v=v.trim();if(!v)return 'Escreva seu nome.';if(v.length<2||!/[A-Za-zÀ-ÿ]/.test(v)||/\d/.test(v))return 'Confira o nome: use só letras.';return ''},
  'f-email':function(v){v=v.trim();if(!v)return 'Escreva seu e-mail.';if(!emailOk(v))return 'Confira o e-mail: ele precisa ter o formato nome@empresa.com.';var dom=v.split('@')[1].toLowerCase();if(DOM_ERRADO[dom])return 'Você quis dizer '+v.split('@')[0]+'@'+DOM_ERRADO[dom]+'?';return ''},
  'f-tel':function(v){if(!so(v))return 'Escreva seu telefone com DDD.';if(!telOk(v))return 'Confira o telefone com DDD, por exemplo (11) 91234-5678.';return ''},
- 'f-empresa':function(v){v=v.trim();if(!v)return 'Escreva o nome da empresa.';if(v.length<2)return 'Confira o nome da empresa.';return ''},
- 'f-cargo':function(v){v=v.trim();if(!v)return 'Escreva seu cargo.';if(v.length<2||!/[A-Za-zÀ-ÿ]/.test(v))return 'Confira o cargo.';return ''},
- 'f-tam':function(v){return v?'':'Escolha o tamanho da empresa.'}};
+ 'f-site':function(v){v=limpaSite(v);if(!v)return 'Escreva o site da empresa.';if(!siteOk(v))return 'Confira o site: ele precisa ter o formato suaempresa.com.br.';return ''},
+ 'f-cargo':function(v){v=v.trim();if(!v)return 'Escreva seu cargo.';if(v.length<2||!/[A-Za-zÀ-ÿ]/.test(v))return 'Confira o cargo.';return ''}};
+/* WhatsApp do topo: só abre depois de um e-mail válido, que vai para a planilha (origem whatsapp) */
+var wf=document.getElementById('ct-wpp');
+if(wf){var wi=document.getElementById('w-email');
+ wf.addEventListener('submit',function(e){e.preventDefault();var v=wi.value.trim(),m=C['f-email'](v);marca('w-email',m);if(m){wi.focus();return}
+  var d={email:v.toLowerCase(),origem:'whatsapp',pagina:document.referrer||''};['utm_source','utm_medium','utm_campaign'].forEach(function(k){if(q.get(k))d[k]=q.get(k)});
+  if(ENVIO){try{fetch(ENVIO,{method:'POST',mode:'no-cors',keepalive:true,headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(d)})}catch(x){}}
+  var t='Olá! Vim pelo site da BoFu e quero conversar sobre o funil da minha empresa.';
+  var w=window.open('https://wa.me/'+['55','11','948005810'].join('')+'?text='+encodeURIComponent(t),'_blank','noopener');
+  if(!w)location.href='https://wa.me/'+['55','11','948005810'].join('')+'?text='+encodeURIComponent(t);
+ });
+ wi.addEventListener('input',function(){if(wi.getAttribute('aria-invalid'))marca('w-email',C['f-email'](wi.value))});
+}
 function marca(id,msg){var i=document.getElementById(id),s=document.getElementById(i.getAttribute('aria-describedby'));if(msg){i.setAttribute('aria-invalid','true');s.textContent=msg;s.hidden=false}else{i.removeAttribute('aria-invalid');s.textContent='';s.hidden=true}}
 function confere(id){var m=C[id](document.getElementById(id).value);marca(id,m);return !m}
 var tel=document.getElementById('f-tel');
@@ -1207,12 +1219,12 @@ f.addEventListener('submit',function(e){e.preventDefault();
  if(ruins.length){er.hidden=false;document.getElementById(ruins[0]).focus();return}
  if(f.elements._gotcha&&f.elements._gotcha.value){ok.hidden=false;f.reset();return}
  var dados={};new FormData(f).forEach(function(v,k){if(k!=='_gotcha')dados[k]=typeof v==='string'?v.trim():v});
- dados.telefone=mascara(dados.telefone);dados.email=String(dados.email).toLowerCase();
+ dados.telefone=mascara(dados.telefone);dados.email=String(dados.email).toLowerCase();dados.empresa=limpaSite(dados.empresa);
  dados.origem=origem||'site';['utm_source','utm_medium','utm_campaign'].forEach(function(k){if(q.get(k))dados[k]=q.get(k)});
  dados.pagina=document.referrer||'';
  if(!ENVIO){fa.textContent='O formulário ainda não tem destino configurado.';fa.hidden=false;return}
  bt.disabled=true;bt.textContent='Enviando...';
- function deu(){ok.hidden=false;abreModal(dados.nome,dados.empresa);f.reset();bt.textContent='Enviado'}
+ function deu(){ok.hidden=false;abreModal(dados.nome);f.reset();bt.textContent='Enviado'}
  function falhou(){fa.hidden=false;bt.disabled=false;bt.textContent=txt}
  /* texto simples evita a checagem extra do navegador, que o Apps Script não responde */
  var corpo=JSON.stringify(dados);
@@ -1246,11 +1258,11 @@ html.editando [data-ed].mudou{outline-style:solid;outline-color:#2C4D80}
 
 <script>
 /* modal de confirmação do contato (16/11) */
-function abreModal(nome,empresa){
+function abreModal(nome){
  var m=document.getElementById('ct-modal');if(!m)return;
  var pn=String(nome||'').trim().split(' ')[0];
- var t='Olá! '+(pn?'Aqui é '+pn+(empresa?', da '+String(empresa).trim():'')+'. ':'')+'Acabei de preencher o formulário no site da BoFu e queria adiantar a nossa conversa.';
- document.getElementById('ct-modal-wpp').href='https://wa.me/5511948005810?text='+encodeURIComponent(t);
+ var t='Olá! '+(pn?'Aqui é '+pn+'. ':'')+'Acabei de preencher o formulário no site da BoFu e queria adiantar a nossa conversa.';
+ document.getElementById('ct-modal-wpp').href='https://wa.me/'+['55','11','948005810'].join('')+'?text='+encodeURIComponent(t);
  if(typeof m.showModal==='function')m.showModal();else m.setAttribute('open','');
 }
 (function(){var m=document.getElementById('ct-modal');if(!m)return;
@@ -1417,6 +1429,17 @@ footer .wrap{flex-wrap:wrap;row-gap:20px}
 .ct-modal-wpp:focus-visible,.ct-modal-fecha:focus-visible,.ct-modal-x:focus-visible{outline:2px solid #CDB896;outline-offset:3px}
 @media (max-width:560px){.ct-modal{padding:40px 24px 28px}.ct-modal-h{font-size:26px}.ct-modal-wpp{width:100%;justify-content:center}.ct-modal-fecha{width:100%}}
 @media (prefers-reduced-motion:reduce){.ct-modal[open]{animation:none}}
+
+/* WhatsApp do topo com e-mail (16/11) */
+.ct-wpp-t{display:block;max-width:440px;line-height:1.5}
+.ct-wpp-l{display:flex;gap:8px;max-width:480px}
+.ct-wpp-l input{flex:1;min-width:0;padding:12px 14px;border:1px solid rgba(220,228,239,.28);border-radius:4px;background:rgba(255,255,255,.06);color:#F8F9FB;font:inherit;font-size:16px}
+.ct-wpp-l input::placeholder{color:rgba(220,228,239,.5)}
+.ct-wpp-l input:focus{outline:none;border-color:#CDB896;background:rgba(255,255,255,.09)}
+.ct-wpp-l input[aria-invalid=true]{border-color:#E8A0A0}
+.ct-wpp-bt{cursor:pointer;background:transparent;font-family:inherit;white-space:nowrap}
+.ct-wpp-err{display:block;margin-top:8px;color:#F2B8B8;font-size:14px}
+@media (max-width:560px){.ct-wpp-l{flex-direction:column}.ct-wpp-bt{justify-content:center}}
 </style>
 <script type="application/json" id="cf-tamanhos">{}</script>
 <script>(function(){
