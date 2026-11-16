@@ -386,7 +386,7 @@ footer{padding-top:64px}
           <p class="selo-hero eb">Contato</p>
           <h1 id="h-pg" class="pg-h1">Vamos olhar <b>o seu funil.</b></h1>
           <p class="sub">Você me conta o que está travando, e eu te digo qual serviço faz sentido, se algum fizer.</p>
-          <form class="ct-wpp" id="ct-wpp" novalidate><label class="ct-wpp-t" for="w-email">Prefere falar pelo WhatsApp? Deixe seu e-mail e a conversa abre por lá.</label><div class="ct-wpp-l"><input id="w-email" type="email" inputmode="email" autocomplete="email" maxlength="120" placeholder="seu@empresa.com" required aria-describedby="e-wemail"><button type="submit" class="ct-wpp-bt"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg><span>Chamar no WhatsApp</span></button></div><span class="ct-ferr ct-wpp-err" id="e-wemail" hidden></span></form>
+          <form class="ct-wpp" id="ct-wpp" novalidate><label class="ct-wpp-t" for="w-email">Prefere falar pelo WhatsApp? Deixe seu e-mail e a conversa abre por lá.</label><div class="ct-wpp-l ct-wpp-cola"><input id="w-email" type="email" inputmode="email" autocomplete="email" maxlength="120" placeholder="Seu e-mail" required aria-describedby="e-wemail"><button type="submit" class="ct-wpp-bt"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6a2.7 2.7 0 0 0 1.8-1.3 2.2 2.2 0 0 0 .2-1.3c-.1-.1-.3-.2-.5-.3Z"/></svg><span class="w-l">Chamar no WhatsApp</span><span class="w-c">WhatsApp</span></button></div><span class="ct-ferr ct-wpp-err" id="e-wemail" hidden></span></form>
         </div>
         <form class="ct-form" id="ct-form" novalidate>
           <div class="ct-2"><label for="f-nome">Nome<input id="f-nome" name="nome" autocomplete="name" maxlength="80" required aria-describedby="e-nome"><span class="ct-ferr" id="e-nome" hidden></span></label>
@@ -1198,10 +1198,17 @@ var wf=document.getElementById('ct-wpp');
 if(wf){var wi=document.getElementById('w-email');
  wf.addEventListener('submit',function(e){e.preventDefault();var v=wi.value.trim(),m=C['f-email'](v);marca('w-email',m);if(m){wi.focus();return}
   var d={email:v.toLowerCase(),origem:'whatsapp',pagina:document.referrer||''};['utm_source','utm_medium','utm_campaign'].forEach(function(k){if(q.get(k))d[k]=q.get(k)});
-  if(ENVIO){try{fetch(ENVIO,{method:'POST',mode:'no-cors',keepalive:true,headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify(d)})}catch(x){}}
   var t='Olá! Vim pelo site da BoFu e quero conversar sobre o funil da minha empresa.';
-  var w=window.open('https://wa.me/'+['55','11','948005810'].join('')+'?text='+encodeURIComponent(t),'_blank','noopener');
-  if(!w)location.href='https://wa.me/'+['55','11','948005810'].join('')+'?text='+encodeURIComponent(t);
+  var url='https://wa.me/'+['55','11','948005810'].join('')+'?text='+encodeURIComponent(t);
+  var w=window.open('','_blank');if(w){try{w.opener=null;w.document.title='Abrindo o WhatsApp...';w.document.body.innerHTML='<p style="font:16px system-ui;padding:24px">Abrindo o WhatsApp...</p>'}catch(x){}}
+  var bw=wf.querySelector('button[type=submit]');if(bw){bw.disabled=true}
+  var foi=false;function vai(){if(foi)return;foi=true;if(bw)bw.disabled=false;if(w&&!w.closed)w.location.href=url;else location.href=url;var mm=document.getElementById('w-modal');if(mm&&mm.close)mm.close()}
+  var corpo=JSON.stringify(d);
+  if(!ENVIO){vai();return}
+  setTimeout(vai,6000);
+  fetch(ENVIO,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:corpo})
+   .then(function(r){return r.json()}).then(function(j){if(!(j&&j.ok))throw 0;vai()})
+   .catch(function(){fetch(ENVIO,{method:'POST',mode:'no-cors',keepalive:true,headers:{'Content-Type':'text/plain;charset=utf-8'},body:corpo}).then(vai,vai)});
  });
  wi.addEventListener('input',function(){if(wi.getAttribute('aria-invalid'))marca('w-email',C['f-email'](wi.value))});
 }
@@ -1440,6 +1447,18 @@ footer .wrap{flex-wrap:wrap;row-gap:20px}
 .ct-wpp-bt{cursor:pointer;background:transparent;font-family:inherit;white-space:nowrap}
 .ct-wpp-err{display:block;margin-top:8px;color:#F2B8B8;font-size:14px}
 @media (max-width:560px){.ct-wpp-l{flex-direction:column}.ct-wpp-bt{justify-content:center}}
+
+/* WhatsApp do topo: campo e botão numa peça só (16/11) */
+.ct-wpp-cola{gap:0;padding:4px;border:1px solid rgba(220,228,239,.28);border-radius:4px;background:rgba(255,255,255,.06);transition:border-color .2s}
+.ct-wpp-cola:focus-within{border-color:#CDB896}
+.ct-wpp-cola input{border:0!important;background:transparent!important;padding:10px 12px}
+.ct-wpp-cola:has(input[aria-invalid=true]){border-color:#E8A0A0}
+.ct-wpp-cola .ct-wpp-bt{border:0;background:#CDB896;color:#081120;padding:10px 16px}
+.ct-wpp-cola .ct-wpp-bt svg{color:#081120}
+.ct-wpp-cola .ct-wpp-bt:hover{background:#E2D2B6}
+.ct-wpp-cola .w-c{display:none}
+.ct-wpp,.ct-wpp-cola{max-width:100%;box-sizing:border-box}.ct-wpp-cola input{width:0;flex:1 1 0;min-width:0}.ct-wpp-cola .ct-wpp-bt{flex:none}
+@media (max-width:560px){.ct-wpp-l.ct-wpp-cola{flex-direction:row}.ct-wpp-cola .w-l{display:none}.ct-wpp-cola .w-c{display:inline}.ct-wpp-cola .ct-wpp-bt{padding:10px 12px}}
 </style>
 <script type="application/json" id="cf-tamanhos">{}</script>
 <script>(function(){
