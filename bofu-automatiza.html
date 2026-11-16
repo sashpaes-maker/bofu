@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<link rel="icon" type="image/svg+xml" href="img/favicon.svg">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BoFu Automatiza · Eficiência operacional real</title>
+<meta name="description" content="A BoFu Automatiza encontra os gargalos da sua operação e resolve com automação, integração de sistemas ou agentes de IA. Faça o diagnóstico em 3 minutos.">
+<meta property="og:title" content="BoFu Automatiza · Eficiência operacional real">
+<meta property="og:description" content="Descubra onde a sua operação perde tempo e o que resolver primeiro.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap">
+<style>
+/* BoFu Automatiza: base da BoFu (Instrument Sans, DM Mono, beges e o seletor) num marfim editorial, com carvão no texto e muito respiro */
+:root{--display:"Instrument Sans",Arial,sans-serif;--mono:"DM Mono","Courier New",monospace;--marfim:#F8F5EF;--marfim-2:#F1ECE2;--carvao:#1C1F26;--azul:#081120;--suave:#5B6070;--cinza:#8A8D95;--linha:#E3DCCF;--bege:#CDB896;--bege-clara:#E2D2B6;--bege-escura:#7D6849;--ouro:#E3B04B;--r-peq:4px;--r-bloco:10px;--s-faixa:144px;--s-sec:72px}
+@media (max-width:900px){:root{--s-faixa:88px;--s-sec:48px}}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth;overflow-anchor:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--marfim);color:var(--carvao);font-family:var(--display);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-anchor:none}
+a{color:inherit}
+.wrap{max-width:1180px;margin:0 auto;padding-inline:clamp(20px,5vw,64px)}
+.rot{margin:0;display:inline-flex;align-items:center;gap:10px;font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--bege-escura)}
+.rot::before{content:"";width:6px;height:6px;background:var(--bege)}
+h1,h2,h3,h4{margin:0;font-weight:400;letter-spacing:-.02em;color:var(--carvao)}
+h1 b,h2 b,h3 b{font-weight:700}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:52px;padding:0 26px;border-radius:var(--r-peq);border:0;background:var(--azul);color:#F8F9FB;font:600 16px var(--display);text-decoration:none;cursor:pointer;transition:background .2s}
+.btn:hover{background:#18233A}
+.btn:focus-visible,.dg-op:focus-visible{outline:2px solid var(--ouro);outline-offset:3px}
+.btn-ouro{background:var(--ouro);color:var(--azul)}.btn-ouro:hover{background:#D69F35}
+.btn-lin{background:transparent;color:var(--carvao);border:1px solid var(--linha)}.btn-lin:hover{background:var(--marfim-2)}
+.btn svg{width:18px;height:18px}
+
+/* topo */
+.au-top{padding-block:24px}
+.au-top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.au-logo{display:inline-flex;align-items:center;gap:10px;text-decoration:none;color:var(--carvao);font-weight:700;font-size:20px;letter-spacing:-.01em}
+.au-logo svg{width:22px;height:22px;color:var(--azul)}
+.au-logo small{font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--bege-escura);padding:4px 8px;border:1px solid var(--linha);border-radius:var(--r-peq)}
+.au-volta{font-size:14px;color:var(--suave);text-decoration:none}.au-volta:hover{color:var(--carvao)}
+
+.au-hero{padding-block:clamp(72px,12vh,148px) var(--s-faixa);position:relative;isolation:isolate}
+.au-hero::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(38% 50% at 82% 28%,rgba(205,184,150,.28),transparent 70%)}
+.au-hero .wrap{display:flex;flex-direction:column;align-items:flex-start;gap:28px}
+.au-hero h1{font-size:clamp(46px,7vw,100px);line-height:1;max-width:14ch}
+.au-sub{margin:0;max-width:620px;font-size:clamp(18px,1.6vw,21px);color:var(--suave)}
+.au-acoes{display:flex;flex-wrap:wrap;align-items:center;gap:16px 24px;margin-top:8px}
+.au-acoes span{font-size:15px;color:var(--cinza)}
+
+/* como atuamos */
+.au-como{padding-block:var(--s-faixa);border-top:1px solid var(--linha)}
+.au-como .wrap{display:flex;flex-direction:column;gap:64px}
+.au-como-top{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px 88px;align-items:start}
+.au-como-top h2{font-size:clamp(36px,4vw,60px);line-height:1.05}
+.au-como-txt{display:flex;flex-direction:column;gap:18px;padding-top:10px}
+.au-como-txt p{margin:0;font-size:19px;line-height:1.65;color:var(--suave)}
+.au-como-txt p b{color:var(--carvao);font-weight:600}
+.au-frentes{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:40px}
+.au-frentes li{display:flex;flex-direction:column;gap:10px;padding-top:22px;border-top:1px solid var(--carvao)}
+.au-frentes span{font-family:var(--mono);font-size:12px;color:var(--bege-escura)}
+.au-frentes h3{font-size:22px;font-weight:600;letter-spacing:-.01em}
+.au-frentes p{margin:0;font-size:16px;color:var(--suave)}
+.au-passos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:2px;background:var(--linha);border:1px solid var(--linha)}
+.au-passos div{background:var(--marfim);padding:28px}
+.au-passos p{margin:0}
+.au-passos .t{font-weight:600;color:var(--carvao);margin:8px 0 6px}
+.au-passos .d{font-size:15px;color:var(--suave)}
+
+/* diagnóstico */
+.dg{padding-block:var(--s-faixa);background:var(--marfim-2);border-top:1px solid var(--linha)}
+.dg-head{display:flex;flex-direction:column;align-items:flex-start;gap:18px;max-width:760px;margin-bottom:56px}
+.dg-head h2{font-size:clamp(36px,4vw,60px);line-height:1.05}
+.dg-head p{margin:0;font-size:19px;color:var(--suave)}
+.dg-box{position:relative;background:var(--marfim);border:1.5px solid var(--bege);padding:clamp(24px,4.5vw,64px)}
+.dg-box::before{content:"";position:absolute;inset:-6px;pointer-events:none;background:linear-gradient(var(--bege),var(--bege)) 0 0/10px 10px no-repeat,linear-gradient(var(--bege),var(--bege)) 100% 0/10px 10px no-repeat,linear-gradient(var(--bege),var(--bege)) 0 100%/10px 10px no-repeat,linear-gradient(var(--bege),var(--bege)) 100% 100%/10px 10px no-repeat}
+.dg-prog{display:flex;align-items:center;gap:16px;margin-bottom:40px;font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--bege-escura)}
+.dg-prog i{flex:1;height:2px;background:var(--linha);position:relative;overflow:hidden}
+.dg-prog i b{position:absolute;left:0;top:0;bottom:0;width:0;background:var(--carvao);transition:width .45s ease}
+.dg-q{display:none;flex-direction:column;gap:18px;border:0;margin:0;padding:0;min-width:0;max-width:820px}
+.dg-q.on{display:flex;animation:dgEntra .45s ease}
+@keyframes dgEntra{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.dg-q.on{animation:none}}
+.dg-q legend{padding:0;font-size:clamp(24px,2.6vw,36px);line-height:1.2;color:var(--carvao)}
+.dg-qn{display:block;margin-bottom:14px;font-family:var(--mono);font-size:13px;letter-spacing:.1em;color:var(--bege-escura)}
+.dg-dica{margin:-4px 0 0;font-size:16px;color:var(--suave)}
+.dg-ops{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:10px}
+.dg-op{text-align:left;min-height:64px;padding:16px 20px;border:1px solid var(--linha);border-radius:var(--r-peq);background:#fff;color:var(--carvao);font:500 17px/1.35 var(--display);cursor:pointer;transition:border-color .2s,background .2s,color .2s}
+.dg-op:hover{border-color:var(--carvao)}
+.dg-op[aria-pressed="true"]{background:var(--azul);border-color:var(--azul);color:#F8F9FB}
+.dg-nav{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:40px}
+.dg-nav .dg-aviso{font-size:14px;color:var(--cinza)}
+
+/* resultado */
+.dg-res{display:none;flex-direction:column;gap:56px}
+.dg-res.on{display:flex;animation:dgEntra .5s ease}
+.dg-r1{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px 72px;align-items:center}
+.dg-r1 h3{font-size:clamp(32px,3.4vw,52px);line-height:1.05;margin:16px 0 18px}
+.dg-r1 p{margin:0;font-size:18px;color:var(--suave)}
+.dg-indice{display:flex;align-items:baseline;gap:14px;margin-top:28px;padding-top:24px;border-top:1px solid var(--linha)}
+.dg-indice strong{font-size:clamp(52px,6vw,80px);line-height:1;font-weight:600;letter-spacing:-.03em;color:var(--carvao)}
+.dg-indice span{font-size:15px;color:var(--suave);max-width:220px}
+.dg-radar svg{width:100%;height:auto;display:block;overflow:visible}
+.dg-radar .anel{fill:none;stroke:var(--linha);stroke-width:1}
+.dg-radar .eixo{stroke:var(--linha);stroke-width:1}
+.dg-radar .area{fill:rgba(205,184,150,.35);stroke:var(--azul);stroke-width:1.6;stroke-linejoin:round}
+.dg-radar .pt{fill:var(--azul)}
+.dg-radar text{font-family:var(--display);font-size:15px;fill:var(--carvao)}
+.dg-radar text.v{font-family:var(--mono);font-size:13px;fill:var(--bege-escura)}
+.dg-barras{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:14px}
+.dg-barras li{display:grid;grid-template-columns:200px 1fr 44px;align-items:center;gap:16px;font-size:15px}
+.dg-barras i{height:6px;background:var(--linha);position:relative}
+.dg-barras i b{position:absolute;left:0;top:0;bottom:0;background:var(--carvao)}
+.dg-barras em{font-style:normal;font-family:var(--mono);font-size:13px;color:var(--bege-escura);text-align:right}
+.dg-fo{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:2px;background:var(--linha);border:1px solid var(--linha)}
+.dg-fo>div{background:var(--marfim);padding:32px}
+.dg-fo h4{font-size:20px;font-weight:600;margin:12px 0 16px}
+.dg-fo ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.dg-fo li{position:relative;padding-left:18px;font-size:16px;color:var(--suave)}
+.dg-fo li::before{content:"";position:absolute;left:0;top:.6em;width:6px;height:6px;background:var(--bege)}
+.dg-fo .vazio{color:var(--cinza);font-style:italic}
+.dg-rec h4{font-size:clamp(26px,2.6vw,36px);margin:14px 0 8px}
+.dg-rec>p{margin:0 0 28px;color:var(--suave);max-width:720px}
+.dg-recs{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.dg-recs li{display:flex;flex-direction:column;gap:10px;padding:28px;background:#fff;border:1px solid var(--linha);border-top:2px solid var(--carvao)}
+.dg-recs .pr{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--bege-escura)}
+.dg-recs h5{margin:0;font-size:21px;font-weight:600;letter-spacing:-.01em;color:var(--carvao)}
+.dg-recs p{margin:0;font-size:15px;color:var(--suave)}
+.dg-recs .tipo{align-self:flex-start;margin-top:auto;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--carvao);padding:5px 9px;background:var(--marfim-2);border-radius:var(--r-peq)}
+.dg-fim{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:24px 48px;align-items:center;padding:clamp(28px,4vw,48px);background:var(--azul);color:#DCE4EF;border-radius:var(--r-bloco)}
+.dg-fim h4{color:#F8F9FB;font-size:clamp(24px,2.4vw,32px);margin:0 0 10px}
+.dg-fim p{margin:0;font-size:16px}
+.dg-fim .acoes{display:flex;flex-wrap:wrap;gap:12px}
+.dg-fim .btn-lin{color:#DCE4EF;border-color:rgba(220,228,239,.3)}.dg-fim .btn-lin:hover{background:rgba(255,255,255,.06)}
+.dg-nota{margin:0;font-size:13px;color:var(--cinza)}
+
+.au-rod{padding-block:48px;border-top:1px solid var(--linha);font-size:14px;color:var(--suave)}
+.au-rod .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
+
+@media (max-width:980px){.au-frentes{grid-template-columns:repeat(2,minmax(0,1fr))}.dg-recs{grid-template-columns:1fr}}
+@media (max-width:900px){.au-como-top,.dg-r1,.dg-fo,.dg-fim{grid-template-columns:1fr}.au-passos{grid-template-columns:1fr}.dg-ops{grid-template-columns:1fr}.dg-barras li{grid-template-columns:1fr 44px}.dg-barras i{grid-column:1 / -1;grid-row:2}}
+@media (max-width:560px){.au-frentes{grid-template-columns:1fr}}
+/* editor de textos e de tamanhos (copiado do site da BoFu) */
+.ed-bar{position:fixed;left:max(16px,env(safe-area-inset-left,0px));bottom:max(16px,env(safe-area-inset-bottom,0px));z-index:80;display:flex;gap:8px;align-items:center;font-family:var(--display)}
+.ed-bar[hidden]{display:none!important}
+.ed-bt{min-height:40px;padding:0 14px;border-radius:4px;border:1px solid #E2E6EC;background:#fff;color:#081120;font:600 14px var(--display);cursor:pointer;box-shadow:0 6px 18px rgba(8,17,32,.12)}
+.ed-bt.pri{background:#081120;color:#F8F9FB;border-color:#081120}
+.ed-bt:focus-visible{outline:2px solid #2C4D80;outline-offset:2px}
+.ed-msg{font:500 13px var(--display);color:#081120;background:#fff;border:1px solid #E2E6EC;border-radius:4px;padding:9px 12px;box-shadow:0 6px 18px rgba(8,17,32,.12)}
+html.editando [data-ed]{outline:1px dashed rgba(205,184,150,.9);outline-offset:3px;cursor:text}
+html.editando [data-ed]:hover{outline-color:#7D6849}
+html.editando [data-ed]:focus{outline:2px solid #CDB896;background:rgba(205,184,150,.12)}
+html.editando [data-ed].mudou{outline-style:solid;outline-color:#2C4D80}
+'+RESET+'
+
+
+html.tamanhos [data-tm]{cursor:pointer;outline:1px dashed rgba(205,184,150,.55);outline-offset:2px}
+html.tamanhos [data-tm]:hover{outline-color:#7D6849}
+html.tamanhos [data-tmt]{outline-color:rgba(205,184,150,.35)}
+.tm-sel{position:absolute;z-index:95;border:1px solid #CDB896;pointer-events:none}
+.tm-sel[hidden]{display:none!important}
+.tm-h{position:absolute;width:12px;height:12px;background:#CDB896;pointer-events:auto;touch-action:none}
+.tm-h[data-c="nw"]{left:-6px;top:-6px;cursor:nwse-resize}
+.tm-h[data-c="ne"]{right:-6px;top:-6px;cursor:nesw-resize}
+.tm-h[data-c="sw"]{left:-6px;bottom:-6px;cursor:nesw-resize}
+.tm-h[data-c="se"]{right:-6px;bottom:-6px;cursor:nwse-resize}
+.tm-med{position:absolute;left:0;top:calc(100% + 10px);white-space:nowrap;font:500 11px var(--mono,monospace);letter-spacing:.1em;text-transform:uppercase;color:#081120;background:#CDB896;padding:4px 7px;border-radius:4px}
+</style>
+</head>
+<body>
+
+<header class="au-top">
+  <div class="wrap">
+    <a class="au-logo" href="#topo" aria-label="BoFu Automatiza, início"><svg viewBox="0 0 100 100" aria-hidden="true"><polygon points="10,9 90,9 83.6,31 16.4,31" fill="currentColor"/><polygon points="20,39 80,39 73.6,61 26.4,61" fill="currentColor"/><polygon points="30,69 70,69 64.6,91 35.4,91" fill="#CDB896"/></svg>BoFu<small>Automatiza</small></a>
+    <a class="au-volta" href="index.html">Conheça a BoFu</a>
+  </div>
+</header>
+
+<main id="topo">
+<section class="au-hero" aria-labelledby="h-au">
+  <div class="wrap">
+    <p class="rot">BoFu Automatiza</p>
+    <h1 id="h-au">Eficiência operacional real, <b>com o time que você já tem.</b></h1>
+    <p class="au-sub">Encontro os gargalos que fazem a sua operação gastar tempo à toa e resolvo com o que fizer sentido para cada um: automação, integração de sistemas ou agentes de IA. Para vender mais e de forma mais previsível, com o mesmo orçamento.</p>
+    <div class="au-acoes"><a class="btn" href="#diagnostico">Começar o diagnóstico <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 3v13M4 10.5l6 6 6-6" fill="none" stroke="currentColor" stroke-width="1.8"/></svg></a><span>9 perguntas · uns 3 minutos · resultado na hora</span></div>
+  </div>
+</section>
+
+<section class="au-como" aria-labelledby="h-como">
+  <div class="wrap">
+    <div class="au-como-top">
+      <div><p class="rot">Como atuamos</p><h2 id="h-como" style="margin-top:18px">A gente não vende IA. <b>Resolve gargalo.</b></h2></div>
+      <div class="au-como-txt">
+        <p>Toda operação grande tem o mesmo vilão: gente boa presa em tarefa que se repete. Copiar dado de um portal para outro, responder a mesma pergunta pela centésima vez, montar o relatório de segunda-feira na mão.</p>
+        <p><b>Nem todo problema precisa de IA.</b> Às vezes é uma integração simples entre dois sistemas. Às vezes é um agente que lê, decide e encaminha. A gente começa pelo problema e só depois escolhe a ferramenta.</p>
+      </div>
+    </div>
+    <ul class="au-frentes">
+      <li><span>01</span><h3>Automação de rotinas</h3><p>Regras claras que rodam sozinhas: lembretes, cobranças, cópias de dados, envios agendados.</p></li>
+      <li><span>02</span><h3>Integração de sistemas</h3><p>Os sistemas e portais passam a conversar, e ninguém mais precisa ser a ponte entre eles.</p></li>
+      <li><span>03</span><h3>Agentes de IA</h3><p>Para o que exige leitura e julgamento: atender, qualificar, conferir e resumir com o contexto da empresa.</p></li>
+      <li><span>04</span><h3>A combinação certa</h3><p>Na maior parte dos casos, um pouco de cada. O desenho final vem do diagnóstico, não do modismo.</p></li>
+    </ul>
+    <div class="au-passos">
+      <div><p class="rot">Passo 1</p><p class="t">Diagnóstico</p><p class="d">Você responde 9 perguntas e vê na hora onde estão os gargalos.</p></div>
+      <div><p class="rot">Passo 2</p><p class="t">Discovery</p><p class="d">A gente conversa com o seu time, olha os processos de perto e prioriza pelo impacto.</p></div>
+      <div><p class="rot">Passo 3</p><p class="t">Projeto sob medida</p><p class="d">A gente desenha, constrói e integra cada solução, com prazo e preço definidos antes.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="dg" id="diagnostico" aria-labelledby="h-dg">
+  <div class="wrap">
+    <div class="dg-head">
+      <p class="rot">Diagnóstico de eficiência operacional</p>
+      <h2 id="h-dg">Onde a sua operação <b>perde tempo?</b></h2>
+      <p>Responda pensando no dia a dia real do time, não no processo ideal. No fim, você recebe o mapa dos gargalos e as frentes que a gente atacaria primeiro.</p>
+    </div>
+    <div class="dg-box">
+      <form id="dgf" novalidate>
+        <div class="dg-prog" aria-hidden="true"><span id="dg-pn">01 / 09</span><i><b id="dg-pb"></b></i></div>
+        <fieldset class="dg-q on" data-q="0">
+          <legend><span class="dg-qn">01</span>Quantas pessoas trabalham na operação que você quer melhorar?</legend>
+          <p class="dg-dica">Conte quem executa o dia a dia, não a empresa toda.</p>
+          <div class="dg-ops"><button type="button" class="dg-op" data-v="0">Até 20</button><button type="button" class="dg-op" data-v="1">21 a 100</button><button type="button" class="dg-op" data-v="2">101 a 500</button><button type="button" class="dg-op" data-v="3">Mais de 500</button></div>
+        </fieldset>
+        <fieldset class="dg-q" data-q="1">
+          <legend><span class="dg-qn">02</span>Quantos sistemas o time usa para fazer o trabalho acontecer?</legend>
+          <p class="dg-dica">CRM, ERP, planilhas, e-mail, portais de parceiros, ferramentas internas.</p>
+          <div class="dg-ops"><button type="button" class="dg-op" data-v="0">1 ou 2</button><button type="button" class="dg-op" data-v="1">3 a 5</button><button type="button" class="dg-op" data-v="2">6 a 10</button><button type="button" class="dg-op" data-v="3">Mais de 10</button></div>
+        </fieldset>
+        <fieldset class="dg-q" data-q="2">
+          <legend><span class="dg-qn">03</span>Com que frequência alguém copia dados de um lugar para outro?</legend>
+          
+          <div class="dg-ops"><button type="button" class="dg-op" data-v="0">Quase nunca</button><button type="button" class="dg-op" data-v="1">Toda semana</button><button type="button" class="dg-op" data-v="2">Todo dia</button><button type="button" class="dg-op" data-v="3">O tempo todo</button></div>
+        </fieldset>
+        <fieldset class="dg-q" data-q="3">
+          <legend><span class="dg-qn">04</span>Quanto do trabalho depende de portais e sistemas externos que não conversam com os seus?</legend>
+          <p class="dg-dica">Sites de parceiros, fornecedores, bancos, órgãos públicos.</p>
+          <div class="dg-ops"><button type="button" class="dg-op" data-v="0">Quase nada</button><button type="button" class="dg-op" data-v="1">Uma parte</button><button type="button" class="dg-op" data-v="2">Boa parte</button><button type="button" class="dg-op" data-v="3">Quase tudo</button></div>
+        </fieldset>
+        <fieldset class="dg-q" data-q="4">
+          <legend><span class="dg-qn">05</span>Quantas mensagens, chamados ou pedidos chegam por dia?</legend>
+          
+          <div class="dg-ops"><button type="button" class="dg-op" data-v="0">Até 50</button><button type="button" class="dg-op" data-v="1">50 a 200</button><button type="button" class="dg-op" data-v="2">200 a 1.000</button><button type="button" class="dg-op" data-v="3">Mais de 1.000</button></div>
+        </fieldset>
+        <fieldset class="dg-q" data-q="5">
+          <legend><span class="dg-qn">06</span>Quanto disso são perguntas ou pedidos que se repetem?</legend>
+          
+          <div class="dg-ops"><button type="button" class="dg-op" data-v="0">Pouca coisa</button><button type="button" class="dg-op" data-v="1">Uns 30%</button><button type="button" class="dg-op" data-v="2">Mais da metade</button><button type="button" class="dg-op" data-v="3">Quase tudo</button></div>
+        </fieldset>
+        <fieldset class="dg-q" data-q="6">
+          <legend><span class="dg-qn">07</span>Como os leads e oportunidades são distribuídos e acompanhados?</legend>
+          
+          <div class="dg-ops"><button type="button" class="dg-op" data-v="0">Um sistema distribui sozinho</button><button type="button" class="dg-op" data-v="1">O CRM ajuda, mas tem muita regra manual</button><button type="button" class="dg-op" data-v="2">Alguém distribui e cobra na mão</button><button type="button" class="dg-op" data-v="3">Não tem um processo definido</button></div>
+        </fieldset>
+        <fieldset class="dg-q" data-q="7">
+          <legend><span class="dg-qn">08</span>Como a liderança recebe os números da operação?</legend>
+          
+          <div class="dg-ops"><button type="button" class="dg-op" data-v="0">Painel que se atualiza sozinho</button><button type="button" class="dg-op" data-v="1">Alguém monta toda semana</button><button type="button" class="dg-op" data-v="2">Alguém monta quando pedem</button><button type="button" class="dg-op" data-v="3">Não recebe com regularidade</button></div>
+        </fieldset>
+        <fieldset class="dg-q" data-q="8">
+          <legend><span class="dg-qn">09</span>Onde ficam os dados que a operação usa para decidir?</legend>
+          
+          <div class="dg-ops"><button type="button" class="dg-op" data-v="0">Organizados em um sistema</button><button type="button" class="dg-op" data-v="1">Espalhados em alguns sistemas</button><button type="button" class="dg-op" data-v="2">Em planilhas</button><button type="button" class="dg-op" data-v="3">Na cabeça das pessoas</button></div>
+        </fieldset>
+        <div class="dg-nav"><button type="button" class="btn btn-lin" id="dg-volta" hidden>Voltar</button><span class="dg-aviso" id="dg-aviso">Escolha uma opção para seguir.</span></div>
+      </form>
+      <div class="dg-res" id="dg-res" aria-live="polite"></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer class="au-rod">
+  <div class="wrap"><span>BoFu Automatiza é a frente de projetos de automação e IA sob medida da BoFu.</span><a class="au-volta" href="index.html">BoFu · O funil funciona. Ele só precisa de estrutura.</a><div class="ft-redes"><a href="https://www.instagram.com/bofu.consultoria" target="_blank" rel="noopener" aria-label="Instagram da BoFu"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a><a href="https://www.linkedin.com/company/bofu-consultoria/" target="_blank" rel="noopener" aria-label="LinkedIn da BoFu"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.84-2.05 3.79-2.05C20.6 8.65 21 11.3 21 14.7V21h-4v-5.6c0-1.34-.03-3.06-1.86-3.06-1.87 0-2.15 1.46-2.15 2.96V21H9z"/></svg></a></div></div>
+</footer>
+
+<script>(function(){
+/* Diagnóstico: uma pergunta por vez; cada resposta soma pontos em 5 dimensões de gargalo.
+   O resultado (radar, fortalezas, oportunidades e frentes recomendadas) é montado aqui mesmo, sem enviar nada. */
+var Q=[{"w":{"escala":1},"n":4},{"w":{"integracao":1},"n":4},{"w":{"manual":1,"integracao":0.5},"n":4},{"w":{"integracao":1,"manual":0.5},"n":4},{"w":{"atendimento":1},"n":4},{"w":{"atendimento":1},"n":4},{"w":{"comercial":1},"n":4},{"w":{"visibilidade":1},"n":4},{"w":{"visibilidade":0.6,"manual":0.4},"n":4}];
+var D=[
+ {k:'manual',n:'Trabalho manual',forte:'Pouco trabalho braçal: o time não vive de copiar e colar.',op:'Muito tempo indo para copiar, colar e conferir dados.',rec:{t:'Automação de rotinas',d:'Tirar do time as tarefas de regra clara, que hoje alguém repete na mão.',tipo:'Automação'}},
+ {k:'integracao',n:'Integração de sistemas',forte:'Os sistemas conversam bem entre si.',op:'Sistemas e portais que não conversam, com gente fazendo a ponte.',rec:{t:'Integração de sistemas e portais',d:'Ligar os sistemas e portais para os dados andarem sozinhos, sem planilha no meio.',tipo:'Integração'}},
+ {k:'atendimento',n:'Volume de atendimento',forte:'O atendimento está sob controle e com pouca repetição.',op:'Muito volume de atendimento, com boa parte repetida.',rec:{t:'Agente de IA para atendimento',d:'Um agente que responde o que se repete com base nos seus materiais e passa para uma pessoa quando precisa.',tipo:'Agente de IA'}},
+ {k:'comercial',n:'Processo comercial',forte:'Leads e oportunidades já têm dono e ritmo.',op:'Leads e oportunidades dependendo de alguém distribuir e cobrar.',rec:{t:'Qualificação e distribuição de leads',d:'Um agente que lê cada lead, aplica os seus critérios e entrega para a pessoa certa na hora.',tipo:'Agente de IA + automação'}},
+ {k:'visibilidade',n:'Visibilidade dos números',forte:'A liderança enxerga os números sem esforço.',op:'Números que dependem de alguém montar, e decisões no escuro.',rec:{t:'Relatórios e painéis automáticos',d:'Os números da operação puxados das fontes e entregues prontos para quem decide.',tipo:'Automação + integração'}}];
+var form=document.getElementById('dgf');if(!form)return;var res=document.getElementById('dg-res');
+var qs=[].slice.call(form.querySelectorAll('.dg-q')),at=0,resp=[],bVolta=document.getElementById('dg-volta'),pn=document.getElementById('dg-pn'),pb=document.getElementById('dg-pb'),aviso=document.getElementById('dg-aviso');
+var reduz=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function dois(n){return (n<10?'0':'')+n}
+function mostra(i){at=i;qs.forEach(function(q,k){q.classList.toggle('on',k===i)});pn.textContent=dois(i+1)+' / '+dois(qs.length);pb.style.width=(i/qs.length*100)+'%';bVolta.hidden=i===0;
+  [].forEach.call(qs[i].querySelectorAll('.dg-op'),function(b){b.setAttribute('aria-pressed',String(resp[i]===+b.dataset.v))})}
+qs.forEach(function(q,k){[].forEach.call(q.querySelectorAll('.dg-op'),function(b){b.addEventListener('click',function(){resp[k]=+b.dataset.v;
+  [].forEach.call(q.querySelectorAll('.dg-op'),function(x){x.setAttribute('aria-pressed',String(x===b))});
+  setTimeout(function(){if(k<qs.length-1)mostra(k+1);else resultado()},reduz?0:260)})})});
+bVolta.addEventListener('click',function(){if(at>0)mostra(at-1)});
+function calcula(){var s={},m={};D.forEach(function(d){s[d.k]=0;m[d.k]=0});var escala=1;
+  Q.forEach(function(q,k){var v=resp[k]||0;if(q.w.escala){escala=[.85,1,1.1,1.2][v];return}Object.keys(q.w).forEach(function(d){s[d]+=v/3*q.w[d];m[d]+=q.w[d]})});
+  var out={};D.forEach(function(d){out[d.k]=Math.max(5,Math.min(100,Math.round(m[d.k]?s[d.k]/m[d.k]*100*escala:0)))});return out}
+function radar(sc){var W=420,H=380,cx=W/2,cy=H/2+6,R=130,n=D.length,o='';
+  function pt(i,r){var a=-Math.PI/2+i*2*Math.PI/n;return [cx+r*Math.cos(a),cy+r*Math.sin(a)]}
+  [.25,.5,.75,1].forEach(function(f){o+='<polygon class="anel" points="'+D.map(function(d,i){return pt(i,R*f).join(',')}).join(' ')+'"/>'});
+  D.forEach(function(d,i){var e=pt(i,R);o+='<line class="eixo" x1="'+cx+'" y1="'+cy+'" x2="'+e[0]+'" y2="'+e[1]+'"/>';
+    var l=pt(i,R+30),anc=Math.abs(l[0]-cx)<10?'middle':(l[0]>cx?'start':'end');o+='<text x="'+l[0]+'" y="'+l[1]+'" text-anchor="'+anc+'" dominant-baseline="middle">'+d.n+'</text><text class="v" x="'+l[0]+'" y="'+(l[1]+16)+'" text-anchor="'+anc+'" dominant-baseline="middle">'+sc[d.k]+'</text>'});
+  o+='<polygon class="area" points="'+D.map(function(d,i){return pt(i,R*sc[d.k]/100).join(',')}).join(' ')+'"/>';
+  D.forEach(function(d,i){var q=pt(i,R*sc[d.k]/100);o+='<circle class="pt" cx="'+q[0]+'" cy="'+q[1]+'" r="3.5"/>'});
+  return '<svg viewBox="-60 -10 '+(W+120)+' '+(H+20)+'" role="img" aria-label="Mapa de gargalos por área">'+o+'</svg>'}
+function resultado(){pb.style.width='100%';var sc=calcula(),ord=D.slice().sort(function(a,b){return sc[b.k]-sc[a.k]});
+  var ind=Math.round(D.reduce(function(s,d){return s+sc[d.k]},0)/D.length);
+  var faixa=ind>=65?['muito alto','Tem muito tempo indo embora em trabalho que não precisa de gente. O ganho de eficiência aqui é grande e rápido.']:ind>=45?['alto','Há gargalos claros, e alguns deles se resolvem sem projeto gigante.']:ind>=25?['moderado','A operação já funciona bem, mas tem pontos específicos onde o time ainda perde tempo.']:['pontual','Sua operação já é bem resolvida. O ganho está em ajustes finos e pontuais.'];
+  var fortes=D.filter(function(d){return sc[d.k]<40}),ops=ord.filter(function(d){return sc[d.k]>=40});
+  var recs=(ops.length?ops:ord).slice(0,3);
+  var h='<div class="dg-r1"><div><p class="rot">Seu resultado</p><h3>Potencial de ganho <b>'+faixa[0]+'.</b></h3><p>'+faixa[1]+'</p>'+
+   '<div class="dg-indice"><strong>'+ind+'</strong><span>índice de gargalo operacional, de 0 a 100. Quanto maior, mais espaço para ganhar.</span></div></div>'+
+   '<div class="dg-radar">'+radar(sc)+'</div></div>'+
+   '<ul class="dg-barras" aria-label="Pontuação por área">'+ord.map(function(d){return '<li><span>'+d.n+'</span><i><b style="width:'+sc[d.k]+'%"></b></i><em>'+sc[d.k]+'</em></li>'}).join('')+'</ul>'+
+   '<div class="dg-fo"><div><p class="rot">Fortalezas</p><h4>O que já funciona</h4><ul>'+(fortes.length?fortes.map(function(d){return '<li>'+d.forte+'</li>'}).join(''):'<li class="vazio">Nenhuma área ficou abaixo de 40. Todas têm espaço para ganhar.</li>')+'</ul></div>'+
+   '<div><p class="rot">Oportunidades</p><h4>Onde o tempo está indo embora</h4><ul>'+(ops.length?ops.map(function(d){return '<li>'+d.op+'</li>'}).join(''):'<li class="vazio">Nenhum gargalo forte. O ganho está nos detalhes.</li>')+'</ul></div></div>'+
+   '<div class="dg-rec"><p class="rot">Frentes recomendadas</p><h4>Por onde a gente começaria</h4><p>Em ordem de impacto, a partir das suas respostas. Repare que nem tudo é IA: cada frente usa a ferramenta que resolve melhor.</p>'+
+   '<ol class="dg-recs">'+recs.map(function(d,i){return '<li><span class="pr">Prioridade '+(i+1)+'</span><h5>'+d.rec.t+'</h5><p>'+d.rec.d+'</p><span class="tipo">'+d.rec.tipo+'</span></li>'}).join('')+'</ol></div>'+
+   '<div class="dg-fim"><div><h4>Quer transformar isso em um plano?</h4><p>No discovery, a gente conversa com o seu time, confirma esses gargalos com os seus dados e te entrega o desenho de cada solução, com prazo e preço.</p></div><div class="acoes"><a class="btn btn-ouro" href="contato.html?origem=automatiza">Quero o discovery completo</a><button type="button" class="btn btn-lin" id="dg-refaz">Refazer</button></div></div>'+
+   '<p class="dg-nota">Resultado calculado só com as suas respostas, aqui no navegador. Nada foi enviado. O discovery confirma tudo com os dados reais da operação.</p>';
+  form.hidden=true;res.innerHTML=h;res.classList.add('on');res.scrollIntoView({behavior:reduz?'auto':'smooth',block:'start'});
+  document.getElementById('dg-refaz').addEventListener('click',function(){resp=[];res.classList.remove('on');res.innerHTML='';form.hidden=false;mostra(0);form.scrollIntoView({behavior:reduz?'auto':'smooth',block:'center'})})}
+mostra(0);
+})();</script>
+<script type="application/json" id="cf-textos">{}</script>
+<div class="ed-bar" id="edbar" hidden><button type="button" class="ed-bt" id="ed-on">Editar textos</button><button type="button" class="ed-bt pri" id="ed-salva" hidden>Salvar</button><button type="button" class="ed-bt" id="ed-cancela" hidden>Cancelar</button><span class="ed-msg" id="ed-msg" hidden></span></div>
+<script>(function(){
+/* Textos editáveis pela dona da página: clique em "Editar textos", altere direto na página e salve.
+   As alterações ficam guardadas no bloco #cf-textos (chave = texto original), e a página é publicada de novo com elas.
+   Fora do claude.ai, funciona quando o site está aberto pelo servidor local (localhost): o arquivo é gravado direto. */
+var SEL='h1,h2,h3,h4,p,li,small,blockquote,figcaption,a.btn,button.btn,.sv-bt span,a.btn-lin,a.cn-bt,a.pd2-bt,.top .nav a,.cf2-t,.cf5-tag,.cf5-sub,.cf5-os,.fs-fam,.afo-t,.afo-n';
+var FORA='svg,script,style,.mold,#fsel,.cf5-linha,.ed-bar,.cf5-bd,.h-est,.logo,.lg-m,footer .logo';
+function hash(t){var h=5381;for(var i=0;i<t.length;i++)h=((h<<5)+h+t.charCodeAt(i))|0;return (h>>>0).toString(36)}
+var bloco=document.getElementById('cf-textos'),txt={};try{txt=JSON.parse(bloco.textContent)||{}}catch(e){txt={}}
+/* só o texto mais interno é editável: um bloco que contém outros blocos (como uma coluna com título e parágrafo) não vira um texto só */
+var BLOCO='p,h1,h2,h3,h4,li,blockquote,figcaption';function contem(el){return !!el.querySelector(BLOCO)}
+var els=[].slice.call(document.querySelectorAll(SEL)).filter(function(el){if(el.closest(FORA)||contem(el))return false;
+  for(var p=el.parentElement;p;p=p.parentElement){if(p.matches&&p.matches(SEL)&&!p.closest(FORA)&&!contem(p))return false}return el.textContent.trim().length>0});
+var vistos={};els.forEach(function(el){var o=el.innerHTML.trim(),h=hash(o);vistos[h]=(vistos[h]||0)+1;var k=h+'-'+vistos[h];el.dataset.ed=k;el._orig=o;if(txt[k]!==undefined)el.innerHTML=txt[k]});
+function limpa(html){var d=document.createElement('div');d.innerHTML=html;
+  (function walk(n){[].slice.call(n.childNodes).forEach(function(c){if(c.nodeType===1){var tag=c.tagName.toLowerCase();
+    if(['b','strong','i','em','br','span'].indexOf(tag)<0){walk(c);while(c.firstChild)n.insertBefore(c.firstChild,c);n.removeChild(c);return}
+    [].slice.call(c.attributes).forEach(function(a){if(!(tag==='span'&&a.name==='class'))c.removeAttribute(a.name)});walk(c)}})})(d);
+  return d.innerHTML.replace(/&nbsp;/g,' ').trim()}
+var bar=document.getElementById('edbar'),bOn=document.getElementById('ed-on'),bSv=document.getElementById('ed-salva'),bCa=document.getElementById('ed-cancela'),msg=document.getElementById('ed-msg'),art=null,salvando=false;
+var local=/^(localhost|127.0.0.1|[::1])$/.test(location.hostname);
+function aviso(t){msg.textContent=t;msg.hidden=!t}
+function modo(on){document.documentElement.classList.toggle('editando',on);els.forEach(function(el){if(on)el.setAttribute('contenteditable','true');else el.removeAttribute('contenteditable')});bOn.hidden=on;bSv.hidden=!on;bCa.hidden=!on;aviso(on?'Clique em qualquer texto para editar.':'')}
+document.addEventListener('click',function(e){if(document.documentElement.classList.contains('editando')&&e.target.closest('a[data-ed],[data-ed] a,button[data-ed],[data-ed] button,button [data-ed]')){e.preventDefault()}},true);
+document.addEventListener('input',function(e){var el=e.target.closest&&e.target.closest('[data-ed]');if(el)el.classList.add('mudou')});
+document.addEventListener('keydown',function(e){if(document.documentElement.classList.contains('editando')&&e.key==='Enter'&&e.target.closest&&e.target.closest('[data-ed]')&&!e.shiftKey){e.preventDefault()}});
+bOn.addEventListener('click',function(){modo(true)});
+bCa.addEventListener('click',function(){location.reload()});
+function esc(j){return j.replace(/</g,'\u003c')}
+var RESET=':root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0;font:14px system-ui,sans-serif}img{max-width:100%}[hidden]{display:none!important}';
+bSv.addEventListener('click',async function(){if(salvando||(!art&&!local))return;salvando=true;aviso('Salvando...');
+  var novo={};Object.keys(txt).forEach(function(k){novo[k]=txt[k]});
+  els.forEach(function(el){var v=limpa(el.innerHTML);if(v===limpa(el._orig))delete novo[el.dataset.ed];else novo[el.dataset.ed]=v});
+  try{
+    var r=await fetch(location.href,{cache:'no-store'});var src=await r.text();
+    if(src.indexOf('id="cf-textos"')<0)throw {code:'fonte'};
+    src=src.replace(/(<script type="application\/json" id="cf-textos">)[\s\S]*?(<\/script>)/,function(m,a,b){return a+esc(JSON.stringify(novo))+b});
+    if(!/^\s*<!doctype/i.test(src))src='<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>'+RESET+'</style></head><body>'+src+'</body></html>';
+    if(art)await art.publish(src);
+    else{var w=await fetch(location.pathname,{method:'PUT',headers:{'Content-Type':'text/html; charset=utf-8'},body:src});if(!w.ok)throw {code:'local'};setTimeout(function(){location.reload()},600)}
+    aviso('Salvo. Recarregando...');
+  }catch(e){salvando=false;var c=e&&e.code;
+    if(c==='conflict')aviso('A página mudou enquanto você editava. Ela vai recarregar com a versão nova.');
+    else if(c==='not_writer'||c==='not_granted'){aviso('Você pode ver esta página, mas não tem permissão para salvar.');bar.hidden=true}
+    else if(c==='local')aviso('Não consegui gravar o arquivo. Confira se o servidor local está ligado.');
+    else if(c==='fonte')aviso('Não consegui ler a página para salvar. Peça para a Claude aplicar estes textos.');
+    else aviso('Não deu para salvar agora. Tente de novo em instantes.')}});
+(async function(){if(local){bar.hidden=false;return}/* só na página em tela cheia: dentro do protótipo (iframe) não aparece */try{if(window.parent!==window&&window.parent.document&&window.parent.document.getElementById('site'))return}catch(e){}if(!window.claude||!window.claude.use)return;try{art=await window.claude.use('artifact')}catch(e){art=null}if(!art)return;var u=null;try{u=await window.claude.use('user')}catch(e){u=null}var pode=false;try{pode=!!(u&&(u.canEdit()||u.isOwner()))}catch(e){pode=false}if(pode)bar.hidden=false})();
+})();</script>
+<style>
+/* editor de tamanhos: o bloco escolhido ganha o seletor da marca; arrastar um canto aumenta ou reduz */
+html.tamanhos [data-tm]{cursor:pointer;outline:1px dashed rgba(205,184,150,.55);outline-offset:2px}
+html.tamanhos [data-tm]:hover{outline-color:#7D6849}
+html.tamanhos [data-tmt]{outline-color:rgba(205,184,150,.35)}
+.tm-sel{position:absolute;z-index:95;border:1px solid #CDB896;pointer-events:none}
+.tm-sel[hidden]{display:none!important}
+.tm-h{position:absolute;width:12px;height:12px;background:#CDB896;pointer-events:auto;touch-action:none}
+.tm-h[data-c="nw"]{left:-6px;top:-6px;cursor:nwse-resize}.tm-h[data-c="ne"]{right:-6px;top:-6px;cursor:nesw-resize}
+.tm-h[data-c="sw"]{left:-6px;bottom:-6px;cursor:nesw-resize}.tm-h[data-c="se"]{right:-6px;bottom:-6px;cursor:nwse-resize}
+.tm-med{position:absolute;left:0;top:calc(100% + 10px);white-space:nowrap;font:500 11px var(--mono,monospace);letter-spacing:.1em;text-transform:uppercase;color:#081120;background:#CDB896;padding:4px 7px;border-radius:4px}
+</style>
+<style>
+/* tamanho padrão do site no computador: o que antes se via com o navegador em 90% */
+@media (min-width:901px){html{zoom:.9}}
+</style>
+<style>
+/* rolagem: o navegador não “segue” as partes animadas que mudam de tamanho (isso fazia a página pular sozinha) */
+html,body{overflow-anchor:none}
+
+/* menu: Serviços abre uma lista com os 3 produtos */
+.sv-m{position:relative;display:flex;align-items:center}
+.sv-bt{display:inline-flex;align-items:center;gap:6px;background:none;border:0;padding:0;cursor:pointer;font:inherit;font-weight:500;color:#081120}
+.sv-bt:hover{color:#2C4D80}
+.sv-bt svg{width:10px;height:10px;transition:transform .2s}
+.sv-m.aberto .sv-bt svg{transform:rotate(180deg)}
+.sv-m.atual .sv-bt span{text-decoration:underline;text-underline-offset:6px;text-decoration-color:#CDB896;text-decoration-thickness:2px}
+.sv-bt:focus-visible{outline:2px solid #E3B04B;outline-offset:4px;border-radius:4px}
+.sv-sub{position:absolute;top:calc(100% + 14px);left:-16px;min-width:210px;background:#F8F9FB;border:1px solid rgba(8,17,32,.08);border-radius:10px;box-shadow:0 14px 34px rgba(5,11,22,.16);padding:6px;display:none;flex-direction:column;z-index:60}
+.sv-sub::before{content:"";position:absolute;left:0;right:0;top:-16px;height:16px}
+.sv-m.aberto .sv-sub{display:flex}
+@media (min-width:981px) and (hover:hover){.sv-m:hover .sv-sub{display:flex}.sv-m:hover .sv-bt svg{transform:rotate(180deg)}}
+.top .links .sv-sub a{display:block;padding:10px 12px;border-radius:6px;white-space:nowrap}
+.top .links .sv-sub a:hover{background:#EEF1F5}
+@media (max-width:980px){
+  .sv-m{flex-direction:column;align-items:stretch}
+  .sv-bt{padding:12px 10px;justify-content:space-between;width:100%}
+  .sv-sub{position:static;display:flex;box-shadow:none;border:0;background:none;padding:0 0 0 12px;min-width:0}
+  .sv-sub::before{display:none}
+  .sv-bt svg{display:none}
+}
+
+/* título do topo no padrão da marca: início normal e final em negrito (igual às páginas de serviço) */
+.pg-hero .pg-h1{font-weight:400!important}.pg-hero .pg-h1 b{font-weight:700}
+
+/* redes sociais no rodapé, discretas */
+.ft-redes{display:flex;align-items:center;gap:6px}
+.ft-redes a{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:4px;color:rgba(220,228,239,.55);transition:color .2s,background .2s}
+.ft-redes a:hover{color:#CDB896;background:rgba(255,255,255,.05)}
+.ft-redes a:focus-visible{outline:2px solid #CDB896;outline-offset:2px}
+.au-rod .ft-redes a{color:currentColor;opacity:.6}.au-rod .ft-redes a:hover{opacity:1;background:transparent}
+</style>
+<script type="application/json" id="cf-tamanhos">{}</script>
+<script>(function(){
+/* Editar tamanhos (só no servidor local): clique num bloco ou num texto e arraste um dos quadradinhos dos cantos.
+   Blocos: largura e altura. Textos: largura da linha (arrastando) e tamanho da letra (A− e A+).
+   Os tamanhos valem no computador e ficam guardados no bloco #cf-tamanhos. No celular o site continua se ajustando sozinho. */
+var BLOCOS='.hero-box,.fs-t,.fl,.tlc-w,.sv3-c,.sv3-ilu,.osw,.faq-l,.cta2-card,.pp-row,.pp-box,.pg-invbox,.po,.ct-form,section img';
+var TEXTOS='h1,h2,h3,h4,p,li,blockquote,figcaption',BLOCO_TXT='p,h1,h2,h3,h4,li,blockquote,figcaption';
+var bloco=document.getElementById('cf-tamanhos'),tam={};try{tam=JSON.parse(bloco.textContent)||{}}catch(e){tam={}}
+var desk=window.matchMedia('(min-width:901px)');
+/* o site no computador aparece em 90% (zoom no html): as medidas da tela são convertidas para as do CSS */
+function zoom(){return parseFloat(getComputedStyle(document.documentElement).zoom)||1}
+function chave(el){var p=[],e=el;while(e&&e!==document.body&&!e.id){var i=1,s=e;while((s=s.previousElementSibling))if(s.tagName===e.tagName)i++;p.unshift(e.tagName.toLowerCase()+':nth-of-type('+i+')');e=e.parentElement}
+  return (e&&e.id?'#'+e.id:'body')+(p.length?'>'+p.join('>'):'')}
+var fora='.ed-bar,.top,.tm-sel,svg,script,style,footer .logo';
+var els=[].slice.call(document.querySelectorAll(BLOCOS)).filter(function(el){return !el.closest(fora)});
+/* só o texto mais interno: um item que contém parágrafos ou títulos não entra, entram os de dentro */
+var txts=[].slice.call(document.querySelectorAll(TEXTOS)).filter(function(el){return !el.closest(fora)&&!el.querySelector(BLOCO_TXT)&&el.textContent.trim().length>0});
+els.forEach(function(el){el.dataset.tm=chave(el)});
+txts.forEach(function(el){el.dataset.tm=chave(el);el.dataset.tmt='1'});
+var todos=els.concat(txts);
+function limpa(el){['width','max-width','min-height','font-size'].forEach(function(x){el.style.removeProperty(x)})}
+function poe(el,v){limpa(el);if(!v||!desk.matches)return;
+  if(el.dataset.tmt){if(v.w)el.style.setProperty('max-width',v.w+'px','important');if(v.fs)el.style.setProperty('font-size',v.fs+'px','important');return}
+  if(v.w){el.style.setProperty('width',v.w+'px','important');el.style.setProperty('max-width','100%','important')}
+  if(v.h)el.style.setProperty('min-height',v.h+'px','important')}
+function aplica(){todos.forEach(function(el){poe(el,tam[el.dataset.tm])})}
+aplica();if(desk.addEventListener)desk.addEventListener('change',aplica);
+var local=/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);if(!local)return;
+var bar=document.getElementById('edbar');if(!bar)return;
+function bt(t,cls){var b=document.createElement('button');b.type='button';b.className='ed-bt'+(cls?' '+cls:'');b.textContent=t;bar.appendChild(b);return b}
+var bOn=bt('Editar tamanhos'),bMenos=bt('A−'),bMais=bt('A+'),bPai=bt('Bloco de fora'),bVolta=bt('Voltar ao original'),bSv=bt('Salvar tamanhos','pri'),bCa=bt('Cancelar');
+[bMenos,bMais,bPai,bVolta,bSv,bCa].forEach(function(b){b.hidden=true});
+bMenos.title='Diminuir a letra';bMais.title='Aumentar a letra';bPai.title='Selecionar o bloco onde este texto está';
+var bTxt=document.getElementById('ed-on'),msg=document.getElementById('ed-msg');
+function aviso(t){if(!msg)return;msg.textContent=t;msg.hidden=!t}
+var sel=document.createElement('div');sel.className='tm-sel';sel.hidden=true;
+['nw','ne','sw','se'].forEach(function(c){var h=document.createElement('span');h.className='tm-h';h.dataset.c=c;sel.appendChild(h)});
+var med=document.createElement('span');med.className='tm-med';sel.appendChild(med);document.body.appendChild(sel);
+var atual=null,ativo=false,novo=JSON.parse(JSON.stringify(tam));
+function botoes(){var t=!!(atual&&atual.dataset.tmt);bMenos.hidden=bMais.hidden=bPai.hidden=!t;bVolta.hidden=!(atual&&novo[atual.dataset.tm])}
+function moldura(){if(!atual){sel.hidden=true;botoes();return}var r=atual.getBoundingClientRect();sel.hidden=false;
+  var z=zoom();sel.style.left=((r.left+window.scrollX)/z)+'px';sel.style.top=((r.top+window.scrollY)/z)+'px';sel.style.width=r.width/z+'px';sel.style.height=r.height/z+'px';
+  med.textContent=atual.dataset.tmt?('largura '+Math.round(r.width/z)+' · letra '+Math.round(parseFloat(getComputedStyle(atual).fontSize))+'px'):(Math.round(r.width/z)+' × '+Math.round(r.height/z));botoes()}
+function modo(on){ativo=on;document.documentElement.classList.toggle('tamanhos',on);bOn.hidden=on;if(bTxt)bTxt.hidden=on;bSv.hidden=bCa.hidden=!on;
+  if(!on){atual=null;moldura();aviso('')}else{botoes();aviso(desk.matches?'Clique num bloco ou texto e arraste um canto.':'Abra numa tela maior para mudar tamanhos.')}}
+bOn.addEventListener('click',function(){modo(true)});
+bCa.addEventListener('click',function(){location.reload()});
+document.addEventListener('click',function(e){if(!ativo||e.target.closest('.ed-bar,.tm-sel'))return;var el=e.target.closest('[data-tm]');
+  e.preventDefault();e.stopPropagation();if(!el)return;atual=el;moldura()},true);
+window.addEventListener('scroll',function(){if(atual)moldura()},{passive:true});window.addEventListener('resize',function(){if(atual)moldura()});
+function guarda(){var k=atual.dataset.tm;poe(atual,novo[k]);moldura()}
+var arr=null;
+sel.addEventListener('pointerdown',function(e){var h=e.target.closest('.tm-h');if(!h||!atual||!desk.matches)return;e.preventDefault();
+  var r=atual.getBoundingClientRect(),z=zoom();arr={c:h.dataset.c,x:e.clientX/z,y:e.clientY/z,w:r.width/z,h:r.height/z};try{h.setPointerCapture(e.pointerId)}catch(_){}});
+sel.addEventListener('pointermove',function(e){if(!arr)return;var z=zoom(),dx=e.clientX/z-arr.x,dy=e.clientY/z-arr.y,c=arr.c,k=atual.dataset.tm,v=novo[k]||{};
+  var w=Math.max(120,Math.round((arr.w+(c.indexOf('e')>=0?dx:-dx))/8)*8);v.w=w;
+  if(!atual.dataset.tmt)v.h=Math.max(48,Math.round((arr.h+(c.indexOf('s')>=0?dy:-dy))/8)*8);
+  novo[k]=v;guarda()});
+sel.addEventListener('pointerup',function(){arr=null});
+function letra(d){if(!atual||!atual.dataset.tmt||!desk.matches)return;var k=atual.dataset.tm,v=novo[k]||{};
+  var fs=v.fs||Math.round(parseFloat(getComputedStyle(atual).fontSize));v.fs=Math.max(10,Math.min(120,fs+d));novo[k]=v;guarda()}
+bMenos.addEventListener('click',function(){letra(-2)});bMais.addEventListener('click',function(){letra(2)});
+bPai.addEventListener('click',function(){if(!atual)return;var a=atual.parentElement&&atual.parentElement.closest('[data-tm]:not([data-tmt])');if(a){atual=a;moldura()}else aviso('Este texto não está dentro de um bloco que dá para mudar.')});
+bVolta.addEventListener('click',function(){if(!atual)return;delete novo[atual.dataset.tm];poe(atual,null);moldura()});
+function esc(j){return j.replace(/</g,'\\u003c')}
+var salvando=false;
+bSv.addEventListener('click',async function(){if(salvando)return;salvando=true;aviso('Salvando...');
+  try{var r=await fetch(location.pathname,{cache:'no-store'});var src=await r.text();
+    if(src.indexOf('id="cf-tamanhos"')<0)throw 0;
+    src=src.replace(/(<script type="application\/json" id="cf-tamanhos">)[\s\S]*?(<\/script>)/,function(m,a,b){return a+esc(JSON.stringify(novo))+b});
+    var w=await fetch(location.pathname,{method:'PUT',headers:{'Content-Type':'text/html; charset=utf-8'},body:src});if(!w.ok)throw 0;
+    aviso('Salvo. Recarregando...');setTimeout(function(){location.reload()},600)}
+  catch(e){salvando=false;aviso('Não consegui salvar. Confira se o servidor local está ligado.')}});
+})();</script>
+</body>
+</html>
